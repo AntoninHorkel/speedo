@@ -1,0 +1,39 @@
+; This is a comment ;
+; All comments are multiline
+So are strings ;
+
+; SInt32     32-bit signed inteeger scalar         ;
+; UInt32     32-bit unsigned inteeger scalar       ;
+; SInt64     64-bit signed inteeger scalar         ;
+; UInt64     64-bit unsigned inteeger scalar       ;
+; AInt       Arbitrary inteeger scalar             ;
+; Float16    16-bit IEEE-754 floating point scalar ;
+; Float32    32-bit IEEE-754 floating point scalar ;
+; Float64    64-bit IEEE-754 floating point scalar ;
+; AFloat     Arbitrary floating point scalar       ;
+; Bool       Boolean scalar                        ;
+; Mat        Matrix with arbitrary size and shape  ;
+; Obj        Object                                ;
+
+entry: Obj(arg1: UInt(32), arg2: Bool = true) Obj(ret: Mat(Float(32) 2 2)) = {
+    x: UInt(32) = 5.0
+    a: SInt(64) = -0xFF
+
+    o = Obj(
+        y: Float(64) = 5
+        b: Float(32) = 494333.333e-10
+        z: Mat(Float(16) 3 2) = [ 1.5 3.328 4.44 | 7.44 6.4 5 ]
+        c: Mat(Bool 5)        = [ true false true true false ]
+    )
+
+    if arg2 {
+        x += arg1
+    }
+
+    if o.c.1 && !o.c.(o.y - 3) {
+        o.b += max(z)
+    }
+
+    ret = o.z @ [ 1.2 2.5 | 11 12 ]
+    return
+}

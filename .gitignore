@@ -1,0 +1,3 @@
+bin/
+# Zls still generates zig-cache/ directory, even if global_cache_path is set in zls.json.
+zig-cache/
